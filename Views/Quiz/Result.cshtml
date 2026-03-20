@@ -1,0 +1,39 @@
+@model c_sharp_quiz.Models.QuizResultViewModel
+
+@{
+    ViewData["Title"] = "Результат";
+}
+
+<section class="result-summary mb-4">
+    <span class="hero-chip">Итог</span>
+    <h1 class="display-6 mb-2 mt-2">Результат викторины</h1>
+    <p class="mb-1">
+        Правильных ответов: <strong>@Model.CorrectAnswers</strong> из <strong>@Model.TotalQuestions</strong>
+    </p>
+    <p class="text-muted mb-0">Оценка уровня: <strong>@Model.LevelLabel</strong></p>
+</section>
+
+@foreach (var item in Model.Items)
+{
+    var cardClass = item.IsCorrect ? "result-card-ok" : "result-card-bad";
+    var statusText = item.IsCorrect ? "Верно" : "Неверно";
+    var statusClass = item.IsCorrect ? "text-success" : "text-danger";
+    var selectedText = item.SelectedOptionIndex is null
+        ? "Нет ответа"
+        : item.Question.Options[item.SelectedOptionIndex.Value];
+    var correctText = item.Question.Options[item.Question.CorrectOptionIndex];
+
+    <section class="card mb-3 @cardClass">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <h2 class="h5 mb-0">@item.Question.Id. @item.Question.Text</h2>
+                <span class="fw-semibold @statusClass">@statusText</span>
+            </div>
+            <p class="mb-1"><strong>Ваш ответ:</strong> @selectedText</p>
+            <p class="mb-1"><strong>Правильный ответ:</strong> @correctText</p>
+            <p class="mb-0 text-muted"><strong>Пояснение:</strong> @item.Question.Explanation</p>
+        </div>
+    </section>
+}
+
+<a asp-controller="Quiz" asp-action="Index" class="btn btn-outline-primary px-4">Пройти ещё раз</a>

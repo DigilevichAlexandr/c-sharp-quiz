@@ -1,0 +1,41 @@
+@model c_sharp_quiz.Models.QuizPageViewModel
+
+@{
+    ViewData["Title"] = ".NET Quiz";
+}
+
+<section class="quiz-header mb-4">
+    <span class="hero-chip">10 вопросов</span>
+    <h1 class="display-6 mb-2 mt-2">Сложная викторина по .NET</h1>
+    <p class="text-muted mb-0">Проверка глубины знаний по платформе и backend-практикам.</p>
+</section>
+
+<form asp-controller="Quiz" asp-action="Submit" method="post" class="quiz-form">
+    @Html.AntiForgeryToken()
+
+    @foreach (var question in Model.Questions)
+    {
+        <section class="quiz-card card mb-3">
+            <div class="card-body">
+                <div class="question-number">Вопрос @question.Id</div>
+                <h2 class="h5 mb-3 mt-2">@question.Text</h2>
+                @for (var i = 0; i < question.Options.Count; i++)
+                {
+                    <div class="form-check option-item mb-2">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            id="q@(question.Id)_@i"
+                            name="answers[@question.Id]"
+                            value="@i" />
+                        <label class="form-check-label" for="q@(question.Id)_@i">
+                            @question.Options[i]
+                        </label>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+
+    <button type="submit" class="btn btn-primary btn-lg">Проверить результат</button>
+</form>
