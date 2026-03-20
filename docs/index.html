@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>.NET Quiz</title>
+  <link rel="stylesheet" href="./site.css">
+</head>
+<body>
+  <main class="container">
+    <section class="hero">
+      <span class="chip">GitHub Pages</span>
+      <h1>Сложная викторина по .NET</h1>
+      <p>10 вопросов по ASP.NET Core, DI, async/await, EF Core и архитектурным нюансам.</p>
+    </section>
+
+    <form id="quiz-form" class="quiz"></form>
+
+    <div class="actions">
+      <button id="submit-btn" type="button">Проверить результат</button>
+      <button id="retry-btn" type="button" class="secondary hidden">Пройти еще раз</button>
+    </div>
+
+    <section id="result" class="result hidden"></section>
+  </main>
+
+  <script src="./quiz.js"></script>
+</body>
+</html>

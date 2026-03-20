@@ -1,0 +1,151 @@
+:root {
+  --bg-start: #f4f7ff;
+  --bg-end: #eef9ff;
+  --surface: #fff;
+  --text-main: #112042;
+  --text-muted: #5c6b8a;
+  --primary: #3b6cff;
+  --primary-strong: #2a54cf;
+  --border-soft: #dfe7ff;
+  --shadow-soft: 0 10px 30px rgba(26, 50, 111, 0.09);
+  --ok: #1f8f5a;
+  --bad: #d94b4b;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: var(--text-main);
+  background: linear-gradient(130deg, var(--bg-start), var(--bg-end));
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 56px;
+}
+
+.hero,
+.card,
+.result {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero {
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  margin: 10px 0 8px;
+}
+
+.hero p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.chip {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #edf2ff;
+  color: #3359d7;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.quiz {
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  padding: 18px;
+}
+
+.q-title {
+  margin: 6px 0 14px;
+  font-size: 19px;
+}
+
+.q-index {
+  display: inline-block;
+  background: #edf2ff;
+  color: #385fd6;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+.option {
+  display: flex;
+  gap: 10px;
+  border: 1px solid #e3eafe;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+}
+
+.option:hover {
+  border-color: #c8d7ff;
+  background: #f8faff;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#submit-btn {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #7b5cff);
+}
+
+#submit-btn:hover {
+  background: linear-gradient(135deg, var(--primary-strong), #6748ea);
+}
+
+.secondary {
+  background: #eef3ff;
+  color: #264199;
+}
+
+.result {
+  margin-top: 16px;
+  padding: 18px;
+}
+
+.result h2 {
+  margin-top: 0;
+}
+
+.result-item {
+  border: 1px solid var(--border-soft);
+  border-left: 5px solid transparent;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.result-item.ok { border-left-color: var(--ok); }
+.result-item.bad { border-left-color: var(--bad); }
+
+.muted { color: var(--text-muted); }
+.hidden { display: none; }
