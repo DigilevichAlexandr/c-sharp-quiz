@@ -11,14 +11,17 @@
     <section class="hero">
       <span class="chip">GitHub Pages</span>
       <h1>Сложная викторина по .NET</h1>
-      <p>10 вопросов по ASP.NET Core, DI, async/await, EF Core и архитектурным нюансам.</p>
+      <p>300 вопросов. Подача по одному в случайном порядке, без повторов уже пройденных.</p>
     </section>
+
+    <section class="progress" id="progress-bar"></section>
 
     <form id="quiz-form" class="quiz"></form>
 
     <div class="actions">
-      <button id="submit-btn" type="button">Проверить результат</button>
-      <button id="retry-btn" type="button" class="secondary hidden">Пройти еще раз</button>
+      <button id="submit-btn" type="button">Ответить</button>
+      <button id="next-btn" type="button" class="secondary hidden">Следующий вопрос</button>
+      <button id="reset-progress-btn" type="button" class="secondary">Сбросить прогресс</button>
     </div>
 
     <section id="result" class="result hidden"></section>

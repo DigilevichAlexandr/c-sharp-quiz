@@ -29,7 +29,8 @@ body {
 
 .hero,
 .card,
-.result {
+.result,
+.progress {
   background: var(--surface);
   border: 1px solid var(--border-soft);
   border-radius: 18px;
@@ -63,6 +64,13 @@ body {
 .quiz {
   display: grid;
   gap: 12px;
+}
+
+.progress {
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
 }
 
 .card {
